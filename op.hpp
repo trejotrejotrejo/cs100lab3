@@ -2,12 +2,23 @@
 #define __OP_HPP__
 
 #include "base.hpp"
+#include <string>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 
 class Op : public Base {
-    public:
-        Op(double value) : Base() { }
-        virtual double evaluate() { return 0.0; }
-        virtual std::string stringify() { return ""; }
+  private:
+	double num;  
+  public:
+        Op(double value) : Base() { num = value; }
+        virtual double evaluate() { return num; } //return value of a node
+        virtual std::string stringify() {
+		std::stringstream out;
+	 	out << num;	
+  		return out.str();  
+	 } //return a string representation of node
+
 };
 
 #endif //__OP_HPP__
