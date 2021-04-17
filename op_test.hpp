@@ -1,5 +1,6 @@
 #ifndef __OP_TEST_HPP__
- #define __OP_TEST_HPP__
+#define __OP_TEST_HPP__
+
   
 #include "gtest/gtest.h"
 #include "base.hpp"
@@ -10,8 +11,8 @@
 #include "add.hpp"
 #include "pow.hpp"
 #include "rand.hpp"
-=======
- //unit tests for op function
+
+//unit tests for op function
 TEST(OpTest, OpEvaluateZero) {
       Op* test = new Op(0);
       EXPECT_EQ(test->evaluate(), 0);
@@ -123,12 +124,12 @@ TEST(SubtractTest, SubLargeNumber) {
      EXPECT_EQ(subtraction->stringify(), "44 - 56");
  }
 
-//unit tests for power function
+    //unit tests for power function
   TEST(PowerTest, PowEvaluateZero) {
     Op* test1 = new Op(14);
     Op* test2 = new Op(0);
-    Base* power = new Pow(test1, test2);
-    EXPECT_EQ(power->evaluate(), 1);
+    Base* mul = new Mult(test1, test2);
+    EXPECT_EQ(mul->evaluate(), 0);
 }
 
 TEST(PowerTest, PowEvaluateNeg) {
