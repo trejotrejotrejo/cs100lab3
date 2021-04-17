@@ -1,4 +1,4 @@
-fndef __OP_TEST_HPP__
+#ifndef __OP_TEST_HPP__
 #define __OP_TEST_HPP__
 
 #include "gtest/gtest.h"
