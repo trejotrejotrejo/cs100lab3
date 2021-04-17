@@ -2,7 +2,6 @@
 #define __OP_TEST_HPP__
 
 #include "gtest/gtest.h"
-#include "gtest/gtest.h"
 #include "base.hpp"
 #include "op.hpp"
 #include "mult.hpp"
