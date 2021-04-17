@@ -77,4 +77,51 @@ TEST(AddingTest, AddEvaluateNegativeVal) {
      EXPECT_EQ(ad->stringify(), "7 + 14");
 }
 
+ //Unit tests for subtract function
+ TEST(SubtractTest, SubEvaluatePositive) {
+      Op* test1 = new Op(9);
+      Op* test2 = new Op(4);
+      Base* subtraction = new Sub(test1, test2);
+      EXPECT_EQ(subtraction->evaluate(), 5);
+  }
+  
+ TEST(SubtractTest, SubEvaluateZero) {
+       Op* test1 = new Op(0);
+       Op* test2 = new Op(0);
+       Base* subtraction = new Sub(test1, test2);
+       EXPECT_EQ(subtraction->evaluate(), 0);
+  }
+  
+ TEST(SubtractTest, SubEvaluateNegative) {
+      Op* test1 = new Op(-5);
+      Op* test2 = new Op(-3);
+      Base* subtraction = new Sub(test1, test2);
+      EXPECT_EQ(subtraction->evaluate(), -2);
+ }
+ 
+TEST(SubtractTest, SubLargeNumber) {
+     Op* test1 = new Op(2006727);
+     Op* test2 = new Op(8060612);
+     Base* subtraction = new Sub(test1, test2);
+    EXPECT_EQ(subtraction->evaluate(), -6053885);
+ }
+ 
+ TEST(SubtractTest, SubEvaluateFloatingPt) {
+      Op* test1 = new Op(31.91);
+      Op* test2 = new Op(5.45);
+      Base* subtraction = new Sub(test1, test2);
+      EXPECT_EQ(subtraction->evaluate(), 26.46);
+  }
+ 
+ TEST(SubtractTest, SubEvaluateStringify) {
+     Op* test1 = new Op(44);
+     Op* test2 = new Op(56);
+     Op* test2 = new Op(56);
+     Base* subtraction = new Sub(test1, test2);
+     EXPECT_EQ(subtraction->stringify(), "44 - 56");
+ }
+
+
+
+
 #endif //__OP_TEST_HPP__
