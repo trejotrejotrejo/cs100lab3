@@ -10,7 +10,10 @@
 
 <<<<<<< Updated upstream
 #include "gtest/gtest.h"
+<<<<<<< HEAD
 #include "gtest/gtest.h"
+=======
+>>>>>>> e78529d3e11530af27b1f2f8b6be0c12b6427add
 #include "base.hpp"
 #include "op.hpp"
 #include "mult.hpp"
@@ -73,6 +76,7 @@ TEST(MultTest, MultEvaluateStringify) {
     EXPECT_EQ(mul->stringify(), "13 * 14");
 }
 
+<<<<<<< HEAD
 TEST(DivTest, DivEvaluateZero) {
     Op* test1 = new Op(0);
     Op* test2 = new Op(5);
@@ -336,6 +340,8 @@ TEST(DivTest, DivEvaluateStringify) {
 } 
 
 <<<<<<< Updated upstream
+=======
+>>>>>>> e78529d3e11530af27b1f2f8b6be0c12b6427add
 #endif //__OP_TEST_HPP__
 =======
  #endif //__OP_TEST_HPP__
