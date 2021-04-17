@@ -11,6 +11,7 @@
 #include "pow.hpp"
 #include "rand.hpp"
 =======
+ //unit tests for op function
 TEST(OpTest, OpEvaluateZero) {
       Op* test = new Op(0);
       EXPECT_EQ(test->evaluate(), 0);
@@ -36,6 +37,7 @@ TEST(OpTest, OpEvaluateZero) {
       EXPECT_EQ(test->evaluate(), 28990);
   }
 
+//unit tests for add function
  TEST(AddingTest, AddEvaluateZero) {
       Op* test1 = new Op(0);
       Op* test2 = new Op(0);
@@ -78,6 +80,7 @@ TEST(OpTest, OpEvaluateZero) {
      EXPECT_EQ(ad->stringify(), "7 + 14");
 }
 
+//unit tests for subtract function
 TEST(SubtractTest, SubEvaluatePositive) {
       Op* test1 = new Op(9);
       Op* test2 = new Op(4);
@@ -120,6 +123,7 @@ TEST(SubtractTest, SubLargeNumber) {
      EXPECT_EQ(subtraction->stringify(), "44 - 56");
  }
 
+//unit tests for power function
   TEST(PowerTest, PowEvaluateZero) {
     Op* test1 = new Op(14);
     Op* test2 = new Op(0);
@@ -153,21 +157,6 @@ TEST(PowerTest, PowEvaluateNeg) {
       Op* test2 = new Op(5);
       Base* power = new Pow(test1, test2);
       EXPECT_EQ(power->stringify(), "20 ^ 5");
-}
-
-TEST(OpTest, OpEvaluateZero) {
-    Op* test = new Op(0);
-    EXPECT_EQ(test->evaluate(), 0);
-}
-
-TEST(OpTest, OpEvaluateNeg) {
-    Op* test = new Op(-10);
-    EXPECT_EQ(test->evaluate(), -10);
-}
-
-TEST(OpTest, OpEvaluateStringify) {
-    Op* test = new Op(12345);
-    EXPECT_EQ(test->evaluate(), 12345);
 }
 
 //Unit tests for multiplication function
