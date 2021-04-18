@@ -1,101 +1,18 @@
 #ifndef __OP_TEST_HPP__
- #define __OP_TEST_HPP__
+#define __OP_TEST_HPP__
+
   
-  #include "gtest/gtest.h"
-  #include "base.hpp"
-  #include "op.hpp"
-  #include "add.hpp"
-  #include "sub.hpp"
-  #include "pow.hpp"
-
-<<<<<<< Updated upstream
 #include "gtest/gtest.h"
-<<<<<<< HEAD
-#include "gtest/gtest.h"
-=======
->>>>>>> e78529d3e11530af27b1f2f8b6be0c12b6427add
 #include "base.hpp"
 #include "op.hpp"
 #include "mult.hpp"
 #include "div.hpp"
+#include "sub.hpp"
+#include "add.hpp"
+#include "pow.hpp"
 #include "rand.hpp"
 
-TEST(OpTest, OpEvaluateNonZero) {
-    Op* test = new Op(8);
-    EXPECT_EQ(test->evaluate(), 8);
-}
-
-TEST(OpTest, OpEvaluateZero) {
-    Op* test = new Op(0);
-    EXPECT_EQ(test->evaluate(), 0);
-}
-
-TEST(OpTest, OpEvaluateNeg) {
-    Op* test = new Op(-10);
-    EXPECT_EQ(test->evaluate(), -10);
-}
-
-TEST(OpTest, OpEvaluateStringify) {
-    Op* test = new Op(12345);
-    EXPECT_EQ(test->evaluate(), 12345);
-}
-
-//Unit tests for multiplication function
-TEST(MultTest, MultEvaluateZero) {
-    Op* test1 = new Op(0);
-    Op* test2 = new Op(0);
-    Base* mul = new Mult(test1, test2);
-    EXPECT_EQ(mul->evaluate(), 0);
-}
-
-TEST(MultTest, MultEvaluatePositiveVal) {
-    Op* test1 = new Op(12);
-    Op* test2 = new Op(9);
-    Base* mul = new Mult(test1, test2);
-    EXPECT_EQ(mul->evaluate(), 108);
-}
-
-TEST(MultTest, MultEvaluateNegativeVal);
-    Op* test1 = new Op(-7);
-    Op* test2 = new Op(8);
-    Base* mul = new Mult(test1, test2);
-    EXPECT_EQ(mul->evaluate(), -56);
-}
-
-TEST(MultTest, MultEvaluateFloatingPoint) {
-    Op* test1 = new Op(12.5);
-    Op* test2 = new Op(14.25);
-    Base* mul = new Mult(test1, test2);
-    EXPECT_EQ(mul->evaluate(), 178.125);
-}
-
-TEST(MultTest, MultEvaluateStringify) {
-    Op* test1 = new Op(13);
-    Op* test2 = new OP(14);
-    Base* mul = new Mult(test1, test2);
-    EXPECT_EQ(mul->stringify(), "13 * 14");
-}
-
-<<<<<<< HEAD
-TEST(DivTest, DivEvaluateZero) {
-    Op* test1 = new Op(0);
-    Op* test2 = new Op(5);
-    Base* divv = new Div(test1, test2);
-    EXPECT_EQ(divv->evaluate(), 0);
-}
-
-TEST(DivTest, DivEvaluatePositiveVal) {
-    Op* test1 = new Op(30);
-    Op* test2 = new Op(5);
-    Base* divv = new Div(test1, test2) {
-    EXPECT_EQ(divv->evaluate() 6);
-}#include "gtest/gtest.h"
-#include "base.hpp"
-#include "op.hpp"
-#include "mult.hpp"
-#include "div.hpp"
-#include "rand.hpp"
-=======
+//unit tests for op function
 TEST(OpTest, OpEvaluateZero) {
       Op* test = new Op(0);
       EXPECT_EQ(test->evaluate(), 0);
@@ -121,6 +38,7 @@ TEST(OpTest, OpEvaluateZero) {
       EXPECT_EQ(test->evaluate(), 28990);
   }
 
+//unit tests for add function
  TEST(AddingTest, AddEvaluateZero) {
       Op* test1 = new Op(0);
       Op* test2 = new Op(0);
@@ -163,6 +81,7 @@ TEST(OpTest, OpEvaluateZero) {
      EXPECT_EQ(ad->stringify(), "7 + 14");
 }
 
+//unit tests for subtract function
 TEST(SubtractTest, SubEvaluatePositive) {
       Op* test1 = new Op(9);
       Op* test2 = new Op(4);
@@ -205,11 +124,12 @@ TEST(SubtractTest, SubLargeNumber) {
      EXPECT_EQ(subtraction->stringify(), "44 - 56");
  }
 
+    //unit tests for power function
   TEST(PowerTest, PowEvaluateZero) {
     Op* test1 = new Op(14);
     Op* test2 = new Op(0);
-    Base* power = new Pow(test1, test2);
-    EXPECT_EQ(power->evaluate(), 1);
+    Base* mul = new Mult(test1, test2);
+    EXPECT_EQ(mul->evaluate(), 0);
 }
 
 TEST(PowerTest, PowEvaluateNeg) {
@@ -238,31 +158,6 @@ TEST(PowerTest, PowEvaluateNeg) {
       Op* test2 = new Op(5);
       Base* power = new Pow(test1, test2);
       EXPECT_EQ(power->stringify(), "20 ^ 5");
-}
->>>>>>> Stashed changes
-
-//unit tests for division function
-TEST(DivTest, DivEvaluateZero) {
-    Op* test1 = new Op(0);
-    Op* test2 = new Op(5);
-    Base* divv = new Div(test1, test2);
-    EXPECT_EQ(divv->evaluate(), 0);
-}
-
-<<<<<<< Updated upstream
-TEST(OpTest, OpEvaluateZero) {
-    Op* test = new Op(0);
-    EXPECT_EQ(test->evaluate(), 0);
-}
-
-TEST(OpTest, OpEvaluateNeg) {
-    Op* test = new Op(-10);
-    EXPECT_EQ(test->evaluate(), -10);
-}
-
-TEST(OpTest, OpEvaluateStringify) {
-    Op* test = new Op(12345);
-    EXPECT_EQ(test->evaluate(), 12345);
 }
 
 //Unit tests for multiplication function
@@ -309,8 +204,6 @@ TEST(DivTest, DivEvaluateZero) {
     EXPECT_EQ(divv->evaluate(), 0);
 }
 
-=======
->>>>>>> Stashed changes
 TEST(DivTest, DivEvaluatePositiveVal) {
     Op* test1 = new Op(49);
     Op* test2 = new Op(7);
@@ -339,11 +232,6 @@ TEST(DivTest, DivEvaluateStringify) {
     EXPECT_EQ(divv->stringify(), "55 / 11");
 } 
 
-<<<<<<< Updated upstream
-=======
->>>>>>> e78529d3e11530af27b1f2f8b6be0c12b6427add
-#endif //__OP_TEST_HPP__
-=======
+
  #endif //__OP_TEST_HPP__
 
->>>>>>> Stashed changes
