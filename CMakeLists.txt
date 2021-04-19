@@ -8,5 +8,16 @@ ADD_EXECUTABLE(test
 	unit_test.cpp
 )
 
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
+=======
+ADD_EXECUTABLE(lab
+	main.cpp
+)
+
+>>>>>>> master
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
