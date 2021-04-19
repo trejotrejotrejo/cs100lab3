@@ -182,6 +182,7 @@ TEST(MultTest, MultEvaluateNegativeVal);
     EXPECT_EQ(mul->evaluate(), -56);
 }
 
+
 TEST(MultTest, MultEvaluateFloatingPoint) {
     Op* test1 = new Op(12.5);
     Op* test2 = new Op(14.25);
@@ -232,6 +233,15 @@ TEST(DivTest, DivEvaluateStringify) {
     EXPECT_EQ(divv->stringify(), "55 / 11");
 } 
 
+//unit tests for rand function
+TEST(RandTest, RandEvaluate) {
+    Rand* test = new Rand();
+    EXPECT_EQ(test->evaluate(), 100);
+
+TEST(RandTest, RandEvaluateStringify) {
+    Rand* test = new Rand();
+    EXPECT_EQ(test->evaluate(), stod(test->stringify()), 0.001);
+}
 
  #endif //__OP_TEST_HPP__
 
