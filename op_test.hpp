@@ -175,7 +175,7 @@ TEST(MultTest, MultEvaluatePositiveVal) {
     EXPECT_EQ(mul->evaluate(), 108);
 }
 
-TEST(MultTest, MultEvaluateNegativeVal);
+TEST(MultTest, MultEvaluateNegativeVal) {
     Op* test1 = new Op(-7);
     Op* test2 = new Op(8);
     Base* mul = new Mult(test1, test2);
@@ -209,7 +209,7 @@ TEST(DivTest, DivEvaluatePositiveVal) {
     Op* test1 = new Op(49);
     Op* test2 = new Op(7);
     Base* divv = new Div(test1, test2);
-    EXPECT_EQ(divv->evaluate(). 7);
+    EXPECT_EQ(divv->evaluate(), 7);
 }
 
 TEST(DivTest, DivEvaluateNegativeVal) {
@@ -220,10 +220,10 @@ TEST(DivTest, DivEvaluateNegativeVal) {
 }
 
 TEST(DivTest, DivEvaluateFloatingPoint) {
-    Op* test1 = new Op(3.5);
-    Op* test2 = new Op(7.5);
+    Op* test1 = new Op(8.5);
+    Op* test2 = new Op(2.5);
     Base* divv = new Div(test1, test2);
-    EXPECT_EQ(divv->evaluate(), 26.25);
+    EXPECT_EQ(divv->evaluate(), 3.4);
 }
 
 TEST(DivTest, DivEvaluateStringify) {
@@ -236,11 +236,12 @@ TEST(DivTest, DivEvaluateStringify) {
 //unit tests for rand function
 TEST(RandTest, RandEvaluate) {
     Rand* test = new Rand();
-    EXPECT_EQ(test->evaluate(), 100);
+    EXPECT_LT(test->evaluate(), 100);
+}
 
 TEST(RandTest, RandEvaluateStringify) {
     Rand* test = new Rand();
-    EXPECT_EQ(test->evaluate(), stod(test->stringify()), 0.001);
+    EXPECT_EQ(std::to_string(test->evaluate()), test->stringify());
 }
 
  #endif //__OP_TEST_HPP__
